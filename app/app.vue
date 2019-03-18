@@ -1,4 +1,7 @@
 <template lang="pug">
+#v-app
+  #nav #[h1 森林排行榜]
+  #ranking-list
 </template>
 
 <script>
@@ -30,5 +33,21 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
+
+#v-app
+  +layout(100%, 100%)
+
+  background-color: #244334
+
+#nav
+  +layout(auto, 100%, .7rem 0)
+
+  background-color: #111d1b
+  color: #d1ccbb
+  text-align: center
+
+  h1
+    margin: 0
+
 </style>
