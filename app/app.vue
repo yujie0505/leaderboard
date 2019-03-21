@@ -21,6 +21,7 @@ export default {
 
   data () {
     return {
+      loading: false,
       ranking: []
     }
   },
@@ -30,10 +31,28 @@ export default {
     loadRanking () {
       const vm = this
 
-      axios.get(`https://testsite.staging.seekrtech.com/forest_rankings?n=20&last_pos=${vm.ranking.length}`)
+      return axios.get(`https://testsite.staging.seekrtech.com/forest_rankings?n=20&last_pos=${vm.ranking.length}`)
         .then(res => vm.ranking.push(...res.data.ranking))
     }
 
+  },
+
+  mounted () {
+    const vm = this
+
+    document.getElementById('ranking-list').addEventListener('scroll', () => {
+      if (vm.loading)
+        return
+
+      const bottom = document.getElementById('loading'),
+            list = document.getElementById('ranking-list')
+
+      if (list.scrollTop >= list.scrollHeight - list.clientHeight - bottom.clientHeight) {
+        vm.loading = true
+
+        vm.loadRanking().then(() => vm.loading = false)
+      }
+    })
   }
 
 }
