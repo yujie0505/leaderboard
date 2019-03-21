@@ -2,6 +2,7 @@
 #v-app
   #nav #[h1 森林排行榜]
   #ranking-list
+    v-ranking-item(v-for="(record, idx) in ranking" :key="idx" :record="record")
 </template>
 
 <script>
@@ -9,14 +10,18 @@ import axios from 'axios'
 
 export default {
 
-  data () {
-    return {
-      ranking: []
-    }
+  components: {
+    'v-ranking-item': require('./components/ranking-item.vue').default
   },
 
   created () {
     this.loadRanking()
+  },
+
+  data () {
+    return {
+      ranking: []
+    }
   },
 
   methods: {
