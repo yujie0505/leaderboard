@@ -8,6 +8,7 @@
         img(:src="require(`../assets/tree_${type}.png`)")
         span {{ record[`${type}_count`] }}
       .time {{ record.total_minutes }} 分鐘
+  .badge {{ ranking }}
 </template>
 
 <script>
@@ -20,6 +21,7 @@ export default {
   },
 
   props: {
+    ranking: Number,
     record: Object
   }
 
@@ -35,6 +37,7 @@ export default {
   box-sizing: border-box
   color: #d1ccbb
   display: inline-block
+  margin-top: .2rem
   position: relative
 
   & + &
@@ -69,5 +72,13 @@ export default {
 
       > img
         +layout(1.5rem, 1.5rem, 0, 0 .5rem 0 0)
+
+  .badge
+    +locate(absolute, -.15rem, .2rem)
+
+    background: url("../assets/badge.png") center / cover no-repeat
+    line-height: 2
+    text-align: center
+    width: 3.5rem
 
 </style>

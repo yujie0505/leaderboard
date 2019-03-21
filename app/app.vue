@@ -2,7 +2,7 @@
 #v-app
   #nav #[h1 森林排行榜]
   #ranking-list
-    v-ranking-item(v-for="(record, idx) in ranking" :key="idx" :record="record")
+    v-ranking-item(v-for="(record, idx) in ranking" :key="record.user_id" :ranking="idx + 1" :record="record")
 </template>
 
 <script>
