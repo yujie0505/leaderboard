@@ -54,6 +54,21 @@ export default {
 
   h1
     font-weight: lighter
+    line-height: 1
     margin: 0
+
+#ranking-list
+  +layout(calc(100vh - 4.4rem), 100%, 0 .4rem 0 .7rem, .5rem 0)
+
+  box-sizing: border-box
+  overflow-y: scroll
+
+  &::-webkit-scrollbar
+    background-color: transparent
+    width: .3rem
+
+  &::-webkit-scrollbar-thumb
+    background-color: #aaa
+    border-radius: 1rem
 
 </style>

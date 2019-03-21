@@ -13,4 +13,14 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+
+.ranking-item
+  +layout(auto, 100%)
+
+  background-color: #1c3225
+  position: relative
+
+  & + &
+    margin-top: .4rem
+
 </style>
