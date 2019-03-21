@@ -3,6 +3,7 @@
   #nav #[h1 森林排行榜]
   #ranking-list
     v-ranking-item(v-for="(record, idx) in ranking" :key="record.user_id" :ranking="idx + 1" :record="record")
+    #loading Loading
 </template>
 
 <script>
@@ -70,5 +71,25 @@ export default {
   &::-webkit-scrollbar-thumb
     background-color: #aaa
     border-radius: 1rem
+
+#loading
+  color: #d1ccbb
+  font-style: italic
+  margin: .5rem 0
+  text-align: center
+
+  &::after
+    animation: loading 2s infinite
+    content: ''
+    margin-left: .2rem
+
+// loading animation
+
+@keyframes loading
+  0%   { content: ''     }
+  25%  { content: '.'    }
+  50%  { content: '..'   }
+  75%  { content: '...'  }
+  100% { content: '....' }
 
 </style>
