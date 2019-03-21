@@ -52,7 +52,6 @@ export default {
   .meta
     display: flex
     flex-direction: column
-    font-size: 1.1rem
     height: 100%
 
     > div
@@ -80,5 +79,9 @@ export default {
     line-height: 2
     text-align: center
     width: 3.5rem
+
+@media screen and (max-width: 350px)
+  .time
+    font-size: .8rem
 
 </style>
